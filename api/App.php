@@ -35,8 +35,8 @@ class App
     private function setupRoutes()
     {
         $router = new Router();
-        $router->addRoute('/^\/secret$/', "POST", [SecretController::class, 'processAddSecretRequest']);
-        $router->addRoute('/^\/secret\/[a-z0-9-]+$/', "GET", [SecretController::class, 'processGetSecretRequest']);
+        $router->addRoute('/^\/v1\/secret$/', "POST", [SecretController::class, 'processAddSecretRequest']);
+        $router->addRoute('/^\/v1\/secret\/[a-z0-9-]+$/', "GET", [SecretController::class, 'processGetSecretRequest']);
         return $router;
     }
 

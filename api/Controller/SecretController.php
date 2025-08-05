@@ -52,7 +52,8 @@ class SecretController
     {
         $uri = $_SERVER['REQUEST_URI'];
         $params = array_slice(explode("/", $uri), 1);
-        $hash = $params[1];
+        // Length of params array is known because of regex matching in Router class.
+        $hash = $params[2];
         $secretService = new SecretService();
         $result = $secretService->getSecretByHash($hash);
         return self::export($result, "Secret not found", 404);
